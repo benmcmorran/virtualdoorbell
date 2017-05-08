@@ -1,0 +1,21 @@
+application: virtualdoorbell
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: false
+
+inbound_services:
+- channel_presence
+
+handlers:
+- url: /favicon\.ico
+  mime_type: image/x-icon
+  static_files: static/img/favicon.ico
+  upload: static/img/favicon\.ico
+- url: /apple-touch-icon\.png
+  static_files: static/img/apple-touch-icon.png
+  upload: static/img/apple-touch-icon\.png
+- url: /static
+  static_dir: static
+- url: /.*
+  script: virtualdoorbell.py

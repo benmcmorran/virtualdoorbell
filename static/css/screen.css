@@ -1,0 +1,152 @@
+/* color scheme: #FFFEFC, #E2E3DF, #515B5E, #2E3233, #CAF200 */
+
+body
+{
+    color: #2E3233;
+    font: 14px/1.5em "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    background-color: #FFFEFC;
+    max-width: 900px;
+    padding: 0 20px 0 20px;
+    margin: auto;
+}
+
+#header
+{
+    padding-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #CAF200;
+}
+
+#header p
+{
+    font: 40px/1em 'Aldrich', monospace;
+    margin: 0;
+    color: #515B5E;
+}
+
+.home #create
+{
+    float: right;
+    width: 250px;
+}
+
+.home #createButton
+{
+    width: 100%;
+    height: 100px;
+    background-color: #CAF200;
+    display: block;
+    border: 1px solid #2E3233;
+    border-width: 1px 2px 2px 1px;
+    font: 40px/1em 'Aldrich', monospace;
+    color: #2E3233;
+    margin-bottom: 5px;
+}
+
+.home #createButton:hover
+{
+    background-color: #DAF210;
+}
+
+.home #createButton:active
+{
+    background-color: #BAE200;
+    border-width: 2px 1px 1px 2px;
+}
+
+.home #createText
+{
+    width: 100%;
+    border: 1px solid #2E3233;
+    display: block;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    font: 16px "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    padding-left: 1px;
+}
+
+.view #firstView
+{
+    background-color: #CAF200;
+    padding: 0 10px 0 10px;
+    border: 1px solid #2E3233;
+}
+
+.view #firstView p
+{
+    margin-bottom: 0;
+}
+
+.view #firstView ol
+{
+    margin-top: 0;
+}
+
+.view #notification
+{
+    font-size: 40px;
+    line-height: 1;
+    padding: 10px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.view #options
+{
+    float: right;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.view #options li
+{
+    display: inline;
+    list-style: none;
+    padding-right: 20px;
+}
+
+.picture
+{
+    float: left;
+    padding: 10px 20px 10px 20px;
+}
+
+.picture img
+{
+    display: block;
+}
+
+.picture p
+{
+    text-align: center;
+}
+
+.picture p .num
+{
+    font-weight: bold;
+}
+
+.print .picture p
+{
+    margin: 0;
+}
+
+.clear
+{
+    clear: both;
+}
+
+#footer
+{
+    font-size: 12px;
+    text-align: right;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #CAF200;
+}
+
+#footer .shareButtons
+{
+    float: left;
+}

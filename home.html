@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Virtual Doorbell{% endblock %}
+{% block description %}Get a free virtual doorbell that rings your computer when a mobile phone code on your door is scanned.{% endblock %}
+{% block bodyclass %}home{% endblock %}
+
+{% block content %}
+<div id="create">
+    <form action="/create" method="post">
+        <input type="submit" value="get one!" id="createButton" />
+        <input type="text" name="doorbellName" id="createText" title="optional doorbell name" placeholder="doorbell name (optional)" />
+    </form>
+</div>
+<div class="picture">
+    <img src="/static/img/scan.png" alt="A phone scanning a QR code on a door." style="height: 200px; width: 150px;" />
+    <p style="width: 150px;"><span class="num">1.</span> A guest scans a code on your door</p>
+</div>
+<div class="picture">
+    <img src="/static/img/ring.png" alt="A person sitting at a desk while his computer rings." style="height: 200px; width: 142px;" />
+    <p style="width: 142px;"><span class="num">2.</span> Your computer rings</p>
+</div>
+<div class="picture">
+    <img src="/static/img/greet.png" alt="A person and another person with a suitcase shaking hands." style="height: 200px; width: 233px;" />
+    <p style="width: 233px;"><span class="num">3.</span> Greet the guest at the door</p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/jquery.placehold.min.js"></script>
+<script>
+$(document).ready(function() {
+    $( "input, textarea" ).placehold();
+})
+</script>
+{% endblock %}

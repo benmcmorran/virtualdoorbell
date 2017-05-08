@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Ringing {{ name }} - Virtual Doorbell{% endblock %}
+{% block description %}Rings {{ name }} virtually.{% endblock %}
+{% block bodyclass %}ring{% endblock %}
+
+{% block content %}
+<p>{{ name }} is ringing...</p>
+<p><a href="/">Learn more about virtual doorbells</a></p>
+{% endblock %}

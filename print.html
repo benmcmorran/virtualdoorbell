@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ name }} - Virtual Doorbell{% endblock %}
+{% block description %}Prints a QR code that rings {{ name }}.{% endblock %}
+{% block bodyclass %}print{% endblock %}
+
+{% block content %}
+<div class="picture">
+    <img src="http://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fvirtualdoorbell.appspot.com%2F{{ key_name }}" alt="A QR code that rings {{ name }}." />
+    <p style="width: 300px;">Scan me! I'm a virtual doorbell.</p>
+    <p style="width: 300px;">virtualdoorbell.appspot.com</p>
+</div>
+<div class="picture">
+    <img src="http://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fvirtualdoorbell.appspot.com%2F{{ key_name }}" alt="A QR code that rings {{ name }}." />
+    <p style="width: 300px;">Scan me! I'm a virtual doorbell.</p>
+    <p style="width: 300px;">virtualdoorbell.appspot.com</p>
+</div>
+<div class="picture">
+    <img src="http://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fvirtualdoorbell.appspot.com%2F{{ key_name }}" alt="A QR code that rings {{ name }}." />
+    <p style="width: 300px;">Scan me! I'm a virtual doorbell.</p>
+    <p style="width: 300px;">virtualdoorbell.appspot.com</p>
+</div>
+<div class="picture">
+    <img src="http://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fvirtualdoorbell.appspot.com%2F{{ key_name }}" alt="A QR code that rings {{ name }}." />
+    <p style="width: 300px;">Scan me! I'm a virtual doorbell.</p>
+    <p style="width: 300px;">virtualdoorbell.appspot.com</p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    window.print();
+});
+</script>
+{% endblock %}

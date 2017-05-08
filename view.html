@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}{{ name }} - Virtual Doorbell{% endblock %}
+{% block description %}Hear a ring on your computer whenever {{ name }} is rung.{% endblock %}
+{% block bodyclass %}view{% endblock %}
+
+{% block content %}
+{% if first_view %}
+<div id="firstView">
+<p>{{ name }} has been created. Just two more steps to finish setup:</p>
+    <ol>
+        <li><a href="#" id="bookmark">Bookmark this page</a> to save your doorbell, and leave it open whenever you want to hear your doorbell ring.</li>
+        <li><a href="/print/{{ key_name }}" target="_blank">Print your doorbell code</a> and attach it to your door.</li>
+    </ol>
+</div>
+{% endif %}
+<ul id="options">
+    <li><a href="#" id="mute">Mute</a></li>
+    <li><a href="/print/{{ key_name }}" target="_blank">Print more doorbell codes</a></li>
+    <li><a href="#" id="testSound">Test doorbell sound</a></li>
+</ul>
+<p id="notification">No one at {{ name }}...</p>
+<p>Doorbell sound courtesy of <a href="http://www.freesound.org/samplesViewSingle.php?id=69385">freesound.org</a></p>
+{% endblock %}
+
+{% block scripts %}
+{% if first_view %}
+<script src="/static/js/jquery.jBrowserBookmark.min.js"></script>
+{% endif %}
+<script src="/static/js/jquery.color.min.js"></script>
+<script src="/static/js/soundmanager2-nodebug-jsmin.js"></script>
+<script>
+soundManager.url = '/static/swf/';
+soundManager.onready(function() {
+    window.ringSound = soundManager.createSound({
+        id: 'ringSound',
+        url: '/static/sound/ring.mp3'
+    });
+});
+
+$(document).ready(function() {
+    {% if first_view %}
+    $('#bookmark').jBrowserBookmark();
+    {% endif %}
+    
+    $('#mute').click(function() {
+        if (typeof window.ringSound != 'undefined') {
+            if (window.ringSound.muted)
+                $(this).html('Mute');
+            else
+                $(this).html('Unmute');
+            window.ringSound.toggleMute();
+        }
+    });
+    
+    $('#testSound').click(function() {
+        if (typeof window.ringSound != 'undefined') {
+            window.ringSound.play();
+        }
+    });
+    
+    createChannel();
+});
+
+function createChannel()
+{
+    var channel = new goog.appengine.Channel('{{ token }}');
+    var socket = channel.open();
+    socket.onopen = function() { setTimeout(location.reload, 7200000); }
+    socket.onmessage = onMessage;
+    socket.onerror = location.reload;
+    socket.onclose = location.reload;
+}
+
+function onMessage(message) {
+    $('#notification').html("{{ name }} is ringing... answer the door!").css('background-color', '#FF0000').animate({ backgroundColor: '#FFFEFC' }, 10000, function() {
+        $(this).html("No one at {{ name }}...");
+    });
+    if (typeof window.ringSound != 'undefined')
+        window.ringSound.play();
+}
+</script>
+{% endblock %}

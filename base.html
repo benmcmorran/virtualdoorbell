@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Virtual Doorbell{% endblock %}</title> 
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="author" content="{% block author %}Ben McMorran{% endblock %}">
+    {% block meta %}{% endblock %}
+    
+    <link rel="stylesheet" href="/static/css/screen.css" media="screen,print,handheld">
+    <link rel="stylesheet" href="/static/css/print.css" media="print">
+    <link href='http://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="{% block bodyclass %}{% endblock %}">
+    <div id="header">
+        <p>virtual doorbell</p>
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+        <div class="clear"></div>
+    </div>
+    <div id="footer">
+        <div class="shareButtons addthis_toolbox addthis_default_style ">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count" addthis:url="http://virtualdoorbell.appspot.com"></a>
+            <a class="addthis_button_tweet" addthis:url="http://virtualdoorbell.appspot.com"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium" addthis:url="http://virtualdoorbell.appspot.com"></a>
+        </div>
+        copyright &copy; Ben McMorran 2011
+    </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e61725f15c09fa1"></script>
+<script type="text/javascript" src="/_ah/channel/jsapi"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

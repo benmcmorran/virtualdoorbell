@@ -1,0 +1,14 @@
+body
+{
+    color: #000000;
+}
+
+.print #header
+{
+    display: none;
+}
+
+.print #footer
+{
+    display: none;
+}
